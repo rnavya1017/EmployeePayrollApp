@@ -1,39 +1,25 @@
 public class PaySlip {
 
-    // Composition
-    private Employee employee;
-    private SalaryComponent salary;
+    private double basicSalary;
+    private double hra;
+    private double allowance;
 
-    public PaySlip(Employee employee,
-                   SalaryComponent salary) {
-        this.employee = employee;
-        this.salary = salary;
+    public PaySlip(double basicSalary,
+                   double hra,
+                   double allowance) {
+
+        this.basicSalary = basicSalary;
+        this.hra = hra;
+        this.allowance = allowance;
     }
 
-    public double calculatePF() {
-        return salary.getBasicSalary() * 0.12;
-    }
+    public double getNetSalary() {
 
-    public double calculateNetSalary() {
-        return salary.getGrossSalary() - calculatePF();
-    }
+        double gross =
+                basicSalary + hra + allowance;
 
-    @Override
-    public String toString() {
+        double pf = basicSalary * 0.12;
 
-        return "\n========== PAYSLIP ==========\n" +
-               "Employee ID   : " + employee.getEmpId() +
-               "\nEmployee Name : " + employee.getName() +
-               "\nDepartment    : " + employee.getDepartment() +
-
-               "\n\nBasic Salary  : " + salary.getBasicSalary() +
-               "\nHRA           : " + salary.getHra() +
-               "\nAllowance     : " + salary.getAllowance() +
-
-               "\nGross Salary  : " + salary.getGrossSalary() +
-               "\nPF Deduction  : " + calculatePF() +
-               "\nNet Salary    : " + calculateNetSalary() +
-
-               "\n============================";
+        return gross - pf;
     }
 }

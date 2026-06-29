@@ -1,26 +1,27 @@
 public class Employee {
 
     private String empId;
-    private String name;
-    private String department;
+    private String empName;
+    private String role;
 
     public Employee(String empId,
-                    String name,
-                    String department) {
+                    String empName,
+                    String role) {
+
         this.empId = empId;
-        this.name = name;
-        this.department = department;
+        this.empName = empName;
+        this.role = role;
     }
 
     public String getEmpId() {
         return empId;
     }
 
-    public String getName() {
-        return name;
+    public String getEmpName() {
+        return empName;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getRole() {
+        return role;
     }
 }
