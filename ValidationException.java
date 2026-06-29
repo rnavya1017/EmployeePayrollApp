@@ -5,3 +5,15 @@ public class ValidationException extends Exception
         super(message);
     }
 }
+
+class EmailValidationException extends ValidationException {
+    public EmailValidationException(String message) {
+        super(message);
+    }
+}
+
+class EmployeeValidationException extends ValidationException {
+    public EmployeeValidationException(String message) {
+        super(message);
+    }
+}
